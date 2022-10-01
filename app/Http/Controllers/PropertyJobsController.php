@@ -14,17 +14,19 @@ class PropertyJobsController extends Controller
     use ApiResponse;
 
     /**
+     * List of jobs
      * @return Illuminate\View\View
      */
-    function index(): View
+    public function index(): View
     {
-        return view("front.list_jobs");
+        return view("front.list");
     }
 
     /**
+     * Return a list of jobs
      * @return JsonResponse
      */
-    function jobsList(): JsonResponse
+    public function jobsList(): JsonResponse
     {
         $allJobs = Job::sanitizeJobList();
         return $this->success('success', ['jobs' => $allJobs]);
@@ -32,27 +34,65 @@ class PropertyJobsController extends Controller
 
 
     /**
+     * Return a list of properties
      * @return JsonResponse
      */
-    function propertyList(): JsonResponse
+    public function propertyList(): JsonResponse
     {
         $allProperties = Property::sanitizePropertyList();
         return $this->success('success', ['properties' => $allProperties]);
     }
 
     /**
-     * Add job form
+     * Create a job form
      * @return View
      */
-    function addJob(): View
+    public function create(): View
     {
-        return view("front.add_job");
+        return view("front.create");
+    }
+
+    /**
+     * Edit job
+     * @param $id
+     * @return View
+     */
+    public function edit($id): View
+    {
+        $job = Job::findOrFail($id);
+        $propertyList = Property::all()->sortBy("name");
+
+        return view("front.edit")->with(["job" => $job, "propertyList" => $propertyList]);
+    }
+
+    /**
+     * Update a job
+     * @param Request $request
+     * @return View
+     */
+    public function update(Request $request, Job $id)
+    {
+        $request->validate([
+            "summary" => "required|max:150",
+            "description" => "required|max:500",
+            "property" => "required|exists:properties,id",
+            "user" => "required|exists:users,id"
+        ]);
+
+        $job = Job::findOrFail($id->id);
+        $job->summary = $request->summary;
+        $job->description = $request->description;
+        $job->property_id = $request->property;
+        $job->user_id = $request->user;
+        $job->save();
+
+        return redirect("/property-jobs/edit/$id->id")->with('success', 'Job has been updated successfully');;
     }
 
     /**
      * Store a job
      */
-    function store(Request $request): JsonResponse
+    public function store(Request $request): JsonResponse
     {
         $request->validate([
              "summary" => "required|max:150",
@@ -70,4 +110,5 @@ class PropertyJobsController extends Controller
 
         return $this->success('success');
     }
+
 }

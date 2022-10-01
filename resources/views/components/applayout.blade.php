@@ -1,3 +1,3 @@
 <button>
-{{ $slot }} dfgdfg
+{{ $slot }}
 </button>
