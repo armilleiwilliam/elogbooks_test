@@ -27,6 +27,9 @@ backend framework (I chose Laravel). Every request and even the list of jobs in 
 Api requesting data from a Laravel back end. That’s how I have understood it should have been developed. To be honest for
 the list of jobs in the main view I would have used only laravel with blade views, it would have been easier and quicker,
 but I understand you needed to see how good my skills in React are.
+In case I might not have understood your requirements completely I have added a section which you didn't request, the editing and update
+of a job. Basically it has been built entirely with Laravel and twig, validation processed by back end code. To show you
+my Laravel skills more fully, also in this case the graphic is very minimal. 
 
 ## Graphic:
 The graphic is very minimal, I have tried to focus mainly on the programming following your instructions, as this is the
