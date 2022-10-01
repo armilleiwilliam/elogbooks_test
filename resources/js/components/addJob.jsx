@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 /**
  * Message response alert
- * choose banner color successful message according to the type
+ * choose banner background color according to the type of message success
  * @param type
  * @param message
  * @returns {JSX.Element}
@@ -148,10 +148,11 @@ function AddJob() {
                         <div className="col-sm-10">
                             <input type="text" className="form-control form-control-md" id="summary" name="summary"
                                    placeholder="Summary"  value={formData.summary} onChange={handleChange}/>
+                            {Object.keys(errors).includes("summary") && errors.summary && (
+                                <strong className="text-left text-danger"><label>{errors.summary}</label></strong>
+                            )}
                         </div>
-                        {Object.keys(errors).includes("summary") && errors.summary && (
-                            <div className="text-center text-danger"><label>{errors.summary}</label></div>
-                        )}
+
                     </div>
                     <div className="form-group row mb-3">
                         <label htmlFor="colFormLabel" className="col-sm-2 col-form-label">Description</label>
@@ -159,10 +160,10 @@ function AddJob() {
                             <input type="text" className="form-control form-control-md" id="description"
                                    name="description"
                                    placeholder="Description" value={formData.description} onChange={handleChange}/>
+                            {Object.keys(errors).includes("description") && errors.description && (
+                                <strong className="text-left text-danger"><label>{errors.description}</label></strong>
+                            )}
                         </div>
-                        {Object.keys(errors).includes("description") && errors.description && (
-                            <div className="text-center text-danger"><label>{errors.description}</label></div>
-                        )}
                     </div>
                     <div className="form-group row mb-3">
                         <label htmlFor="colFormLabelLg"
@@ -171,10 +172,10 @@ function AddJob() {
                             <select className="form-control" name="property"  onChange={handleChange}>
                                 {formData.listProperties}
                             </select>
+                            {Object.keys(errors).includes("property") && errors.property && (
+                                <strong className="text-left text-danger"><label>{errors.property}</label></strong>
+                            )}
                         </div>
-                        {Object.keys(errors).includes("property") && errors.property && (
-                            <div className="text-center text-danger"><label>{errors.property}</label></div>
-                        )}
                     </div>
                     <hr />
                     <div className="form-group row mb-3 text-right">

@@ -18,7 +18,7 @@
                         <input type="text" class="form-control form-control-md" id="summary" name="summary"
                                placeholder="Summary" value="{{ $job->summary }}"/>
                         @if ($errors->has('summary'))
-                                <strong>{{ $errors->first('summary') }}</strong>
+                                <strong class="text-danger">{{ $errors->first('summary') }}</strong>
                         @endif
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                                placeholder="Description" value="{{ $job->description }}"/>
 
                         @if ($errors->has('description'))
-                                <strong>{{ $errors->first('description') }}</strong>
+                                <strong class="text-danger">{{ $errors->first('description') }}</strong>
                         @endif
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                             @endforelse
                         </select>
                         @if ($errors->has('property'))
-                                <strong>{{ $errors->first('property') }}</strong>
+                                <strong class="text-danger">{{ $errors->first('property') }}</strong>
                         @endif
                     </div>
                 </div>
