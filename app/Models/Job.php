@@ -55,7 +55,9 @@ class Job extends Model
         $listJobs = [];
         if(!empty($allJobs) && count($allJobs) > 0){
             foreach ($allJobs as $job) {
-                $listJobs[] = ["summary" => $job->summary,
+                $listJobs[] = [
+                    "id" => $job->id,
+                    "summary" => $job->summary,
                     "description" => $job->description,
                     "status" => $job->status,
                     "property" => $job->property->name,

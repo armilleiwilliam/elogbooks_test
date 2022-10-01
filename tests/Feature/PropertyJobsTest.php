@@ -43,7 +43,6 @@ class PropertyJobsTest extends TestCase
         ]);
     }
 
-
     /**
      * Test index page view
      * @return void
@@ -69,6 +68,7 @@ class PropertyJobsTest extends TestCase
             "data" => [
                 "jobs" => [
                     [
+                        "id" => $this->job->id,
                         "summary" => $this->job->summary,
                         "description" => $this->job->description,
                         "status" => "open",

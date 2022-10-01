@@ -22,7 +22,9 @@ Route::get('/', function () {
 Route::prefix('property-jobs')->group(function(){
     Route::get('/', [PropertyJobsController::class, 'index'])->name("job_list_formatted");
     Route::get('/jobs-list', [PropertyJobsController::class, 'jobsList'])->name("list_jobs");
-    Route::get('/add-job', [PropertyJobsController::class, 'addJob'])->name("add_job");
+    Route::get('/add-job', [PropertyJobsController::class, 'create'])->name("add_job");
+    Route::get('/edit/{id}', [PropertyJobsController::class, 'edit'])->name("edit_job");
+    Route::get('/update/{id}', [PropertyJobsController::class, 'update'])->name("update_job");
     Route::post('/store-job', [PropertyJobsController::class, 'store'])->name("store_job");
     Route::get('/property-list', [PropertyJobsController::class, 'propertyList'])->name("properties");
 });

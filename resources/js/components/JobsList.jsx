@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
+
+const EditButton = ({idJob}) => {
+    return <a href={"edit/" + idJob} className="btn btn-primary">Edit</a>;
+}
+
 /**
  * Show list of jobs for properties listed
  * @returns {JSX.Element}
@@ -31,6 +36,7 @@ function JobsList() {
                             <td>{job.property}</td>
                             <td>{job.created_by}</td>
                             <td>{job.created_at}</td>
+                            <td> <EditButton idJob={job.id} /></td>
                         </tr>
                     </React.Fragment>);
                 }
@@ -61,6 +67,7 @@ function JobsList() {
                     <th>Porperty name</th>
                     <th>Created by</th>
                     <th>Created</th>
+                    <th>Controller</th>
                 </tr>
                 </thead>
                 <tbody>
