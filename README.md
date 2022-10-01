@@ -20,7 +20,7 @@ It runs on Laravel v9 and React integrated in the same application.
 - you will then see a simple blank page with the links to the two views. Click on one of them. Otherwise access to them directly with:
 - list of jobs: http://127.0.0.1:8000/property-jobs/
 - Log a job: http://127.0.0.1:8000/property-jobs/add-job
-- for testing, run “php artisan test” after following the below instructions
+- for testing, run “php artisan test” after following the below instructions in "Testing with PhpUnit" section. 
 
 ## Graphic:
 The graphic is very minimal, I have tried to focus mainly on the programming following your instructions, as this is the
@@ -48,7 +48,7 @@ but I think components make life somehow easier and keep the code more tidy.
   In some cases the settings could be ignored returning a failing test when you have :memory: set, run "php artisan config:clear" and 
   "php artisan migrate:refresh --seed" to restore the database. Why you need to restore the db? Because if you run the test and it does ignore
   the settings with ":memory:" it deletes entirely the physical database (use RefreshDatabase;) after you run the first test, so you have to 
-  restore the dummy data. I hope it makes sense.  :-)
+  restore the dummy data. I hope it makes sense.  :-) For your information when I last ran the test it was successful. 
 
 
 ## User:
