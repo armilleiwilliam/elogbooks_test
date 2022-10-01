@@ -7,7 +7,7 @@
             <h3 class="text-center border-bottom-1">Edit a job</h3>
             @include('layout.success_messages')
             <p>
-                <a href="{{ route('job_list_formatted') }}/" class="btn btn-primary" target="_blank">Properties List</a>
+                <a href="{{ route('job_list_formatted') }}/" class="btn btn-primary" target="_blank">Jops List</a>
             </p>
             <hr/>
             <form action="{{ route('update_job', ["id" => $job->id ]) }}">

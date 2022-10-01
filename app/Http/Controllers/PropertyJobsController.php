@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Job;
 use App\Models\Property;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponse;
 use Illuminate\View\View;
@@ -44,7 +45,7 @@ class PropertyJobsController extends Controller
     }
 
     /**
-     * Create a job form
+     * Create log a job form
      * @return View
      */
     public function create(): View
@@ -61,7 +62,6 @@ class PropertyJobsController extends Controller
     {
         $job = Job::findOrFail($id);
         $propertyList = Property::all()->sortBy("name");
-
         return view("front.edit")->with(["job" => $job, "propertyList" => $propertyList]);
     }
 
@@ -70,7 +70,7 @@ class PropertyJobsController extends Controller
      * @param Request $request
      * @return View
      */
-    public function update(Request $request, Job $id)
+    public function update(Request $request, Job $id): RedirectResponse
     {
         $request->validate([
             "summary" => "required|max:150",
@@ -95,7 +95,7 @@ class PropertyJobsController extends Controller
     public function store(Request $request): JsonResponse
     {
         $request->validate([
-             "summary" => "required|max:150",
+            "summary" => "required|max:150",
             "description" => "required|max:500",
             "property" => "required|exists:properties,id",
             "user" => "required|exists:users,id"

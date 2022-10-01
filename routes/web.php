@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::prefix('property-jobs')->group(function(){
     Route::get('/', [PropertyJobsController::class, 'index'])->name("job_list_formatted");
     Route::get('/jobs-list', [PropertyJobsController::class, 'jobsList'])->name("list_jobs");
