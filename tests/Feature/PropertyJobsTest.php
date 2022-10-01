@@ -51,8 +51,8 @@ class PropertyJobsTest extends TestCase
     {
         $response = $this->get("/property-jobs/");
         $response->assertStatus(200);
-        $response->assertViewIs("front.list_jobs")
-        ->assertSee("Here is the list of Jobs");
+        $response->assertViewIs("front.list")
+        ->assertSee("Jobs list");
     }
 
     /**
