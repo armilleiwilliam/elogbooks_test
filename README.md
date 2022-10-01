@@ -41,11 +41,15 @@ The views are included in a component “x-app-layout”, usually I use somethin
 but I think components make life somehow easier and keep the code more tidy.
 
 ## Testing with PhpUnit:
-- for testing I use “sqlite” and database “:memory:” (see phpunit.xml), so, there is no need to set any physical database
-  for testing because it uses the memory of your machine. But in order to have it working you need to have
-  php-sqlite3 installed, if you don’t have it run “sudo apt-get install php-sqlite3”, you might need to enable it on your
-  php.ini. Otherwise create a database for testing and add it to phpunit.xml file replacing :memory: line, then comment
-  the DB_CONNECTION “sqlite” line.
+- for testing purposes I use “sqlite” and database “:memory:” (see phpunit.xml), so, there is no need to set any physical database
+  as it uses the memory of your machine. But in order to have it working you need to have php-sqlite3 installed, 
+  if you don’t have it run “sudo apt-get install php-sqlite3”, you might need to enable it on your php.ini. Otherwise create 
+   a database just for testing and add it to phpunit.xml file replacing :memory: line, then comment the DB_CONNECTION “sqlite” line.
+  In some cases the settings could be ignored returning a failing test when you have :memory: set, run "php artisan config:clear" and 
+  "php artisan migrate:refresh --seed" to restore the database. Why you need to restore the db? Because if you run the test and it does ignore
+  the settings with ":memory:" it deletes entirely the physical database (use RefreshDatabase;) after you run the first test, so you have to 
+  restore the dummy data. I hope it makes sense.  :-)
+
 
 ## User:
 - considering there is no login process, when creating a new job the user is assigned hard coded (user_id = 1).
