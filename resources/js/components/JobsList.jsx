@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
+import ReactPaginate from 'react-paginate';
+import "./../../css/custom.css";
 
 
 const EditButton = ({idJob}) => {
@@ -13,24 +15,50 @@ const EditButton = ({idJob}) => {
  */
 function JobsList() {
     const [listJobs, setListJobs] = useState({
-        postdata: [],
+        postData: [],
+        total: null,
+        per_page:null,
+        current_page: 1,
+        active: false,
     });
 
     const [errorMessage, setErrorMessage] = useState({type: '', message: ""});
     let propertyData = null;
+    let pageNumber = null;
 
     // as soon as the page is loaded I retrieve the jobs list
     useEffect(() => {
-        window.axios.get("jobs-list").then(resp => {
+        makeHttpRequestWithPage(1);
+    }, [propertyData, pageNumber]);
+
+    const handlePageClick = (e) => {
+        const selectedPage = e.selected;
+        const offset = selectedPage * listJobs.perPage;
+
+        setListJobs({
+            currentPage: selectedPage,
+            offset: offset,
+        });
+        makeHttpRequestWithPage(selectedPage + 1);
+    };
+
+    const makeHttpRequestWithPage = pageNumber => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+
+        window.axios.get(`jobs-list/${pageNumber}`).then(resp => {
             if (resp.data.message == "success") {
                 propertyData = resp.data.data.jobs;
+                let jobs = propertyData.jobs
 
                 // check first if no job added, otherwise I loop the list returned
-                let postdata = <React.Fragment><tr><td colspan='6'>No job added</td></tr></React.Fragment>;
-                if(propertyData.length > 0){
-                    postdata = propertyData.map((job, itemId) => <React.Fragment>
+                let postData = <React.Fragment><tr><td colspan='6'>No job added</td></tr></React.Fragment>;
+                if(jobs.length > 0){
+                    postData = jobs.map((job, itemId) => <React.Fragment>
                         <tr>
-                            <td>{itemId + 1}</td>
+                            <td>{((pageNumber - 1) * 10) + itemId + 1}</td>
                             <td>{job.summary}</td>
                             <td>{job.status}</td>
                             <td>{job.property}</td>
@@ -42,7 +70,11 @@ function JobsList() {
                 }
 
                 setListJobs({
-                    postdata
+                    postData,
+                    total: propertyData.total,
+                    per_page: propertyData.per_page,
+                    current_page: propertyData.current_page,
+                    active: propertyData.current_page,
                 });
             }
         }).catch(error => {
@@ -51,7 +83,8 @@ function JobsList() {
                 message: error
             });
         });
-    }, [propertyData]);
+    }
+
 
     return (
         <div>
@@ -71,9 +104,25 @@ function JobsList() {
                 </tr>
                 </thead>
                 <tbody>
-                {listJobs.postdata}
+                {listJobs.postData}
                 </tbody>
             </table>
+            {listJobs.total != 0 &&
+                <nav aria-label="...">
+                <ReactPaginate
+                    previousLabel={"<<"}
+                    nextLabel={">>"}
+                    breakLabel={"..."}
+                    breakClassName={"page-item"}
+                    pageCount={Math.ceil(listJobs.total / listJobs.per_page)}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"page-item"}
+                    activeClassName={"active"}/>
+                </nav>
+            }
         </div>
     );
 }

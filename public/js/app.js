@@ -5800,15 +5800,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_paginate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-paginate */ "./node_modules/react-paginate/dist/react-paginate.js");
 /* harmony import */ var react_paginate__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_paginate__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _css_custom_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../css/custom.css */ "./resources/css/custom.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5827,9 +5820,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var EditButton = function EditButton(_ref) {
   var idJob = _ref.idJob;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
     href: "edit/" + idJob,
     className: "btn btn-primary",
     children: "Edit"
@@ -5844,10 +5838,11 @@ var EditButton = function EditButton(_ref) {
 
 function JobsList() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    postdata: [],
+    postData: [],
     total: null,
     per_page: null,
-    current_page: 1
+    current_page: 1,
+    active: false
   }),
       _useState2 = _slicedToArray(_useState, 2),
       listJobs = _useState2[0],
@@ -5861,142 +5856,129 @@ function JobsList() {
       errorMessage = _useState4[0],
       setErrorMessage = _useState4[1];
 
-  var propertyData = null; // as soon as the page is loaded I retrieve the jobs list
+  var propertyData = null;
+  var pageNumber = null; // as soon as the page is loaded I retrieve the jobs list
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     makeHttpRequestWithPage(1);
-  }, [propertyData]);
+  }, [propertyData, pageNumber]);
 
   var handlePageClick = function handlePageClick(e) {
     var selectedPage = e.selected;
     var offset = selectedPage * listJobs.perPage;
-    setJobPaginate({
+    setListJobs({
       currentPage: selectedPage,
       offset: offset
-    }, function () {
-      makeHttpRequestWithPage(selectedPage + 1);
+    });
+    makeHttpRequestWithPage(selectedPage + 1);
+  };
+
+  var makeHttpRequestWithPage = function makeHttpRequestWithPage(pageNumber) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    window.axios.get("jobs-list/".concat(pageNumber)).then(function (resp) {
+      if (resp.data.message == "success") {
+        propertyData = resp.data.data.jobs;
+        var jobs = propertyData.jobs; // check first if no job added, otherwise I loop the list returned
+
+        var postData = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tr", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+              colspan: "6",
+              children: "No job added"
+            })
+          })
+        });
+
+        if (jobs.length > 0) {
+          postData = jobs.map(function (job, itemId) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  children: (pageNumber - 1) * 10 + itemId + 1
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  children: job.summary
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  children: job.status
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  children: job.property
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  children: job.created_by
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  children: job.created_at
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
+                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(EditButton, {
+                    idJob: job.id
+                  })]
+                })]
+              })
+            });
+          });
+        }
+
+        setListJobs({
+          postData: postData,
+          total: propertyData.total,
+          per_page: propertyData.per_page,
+          current_page: propertyData.current_page,
+          active: propertyData.current_page
+        });
+      }
+    })["catch"](function (error) {
+      setErrorMessage({
+        type: 500,
+        message: error
+      });
     });
   };
 
-  var makeHttpRequestWithPage = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(pageNumber) {
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              });
-              window.axios.get("jobs-list?page=".concat(pageNumber)).then(function (resp) {
-                if (resp.data.message == "success") {
-                  propertyData = resp.data.data.jobs; // check first if no job added, otherwise I loop the list returned
-
-                  var postdata = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tr", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                        colspan: "6",
-                        children: "No job added"
-                      })
-                    })
-                  });
-
-                  if (propertyData.length > 0) {
-                    postdata = propertyData.map(function (job, itemId) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                            children: itemId + 1
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                            children: job.summary
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                            children: job.status
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                            children: job.property
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                            children: job.created_by
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                            children: job.created_at
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
-                            children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(EditButton, {
-                              idJob: job.id
-                            })]
-                          })]
-                        })
-                      });
-                    });
-                  }
-
-                  setListJobs({
-                    postdata: postdata,
-                    total: resp.data.data.total,
-                    per_page: resp.data.data.per_page,
-                    current_page: resp.data.data.current_page,
-                    active: resp.data.data.current_page
-                  });
-                }
-              })["catch"](function (error) {
-                setErrorMessage({
-                  type: 500,
-                  message: error
-                });
-              });
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function makeHttpRequestWithPage(_x) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [errorMessage.message !== "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [errorMessage.message !== "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
         children: "List of jobs could not be retrieved"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
         children: ["(", errorMessage.message, ")"]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("table", {
       className: "table table-striped",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("thead", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             children: "#"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             children: "Summary"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             children: "Status"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             children: "Porperty name"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             children: "Created by"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             children: "Created"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             children: "Controller"
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
-        children: listJobs.postdata
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
+        children: listJobs.postData
       })]
-    }), listJobs.total != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)((react_paginate__WEBPACK_IMPORTED_MODULE_2___default()), {
-      previousLabel: "<<",
-      nextLabel: ">>",
-      breakLabel: "...",
-      breakClassName: "break-me",
-      pageCount: Math.ceil(listJobs.total / listJobs.per_page),
-      marginPagesDisplayed: 2,
-      pageRangeDisplayed: 5,
-      onPageChange: handlePageClick,
-      containerClassName: "pagination",
-      subContainerClassName: "pages pagination",
-      activeClassName: "active"
+    }), listJobs.total != 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
+      "aria-label": "...",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)((react_paginate__WEBPACK_IMPORTED_MODULE_2___default()), {
+        previousLabel: "<<",
+        nextLabel: ">>",
+        breakLabel: "...",
+        breakClassName: "page-item",
+        pageCount: Math.ceil(listJobs.total / listJobs.per_page),
+        marginPagesDisplayed: 2,
+        pageRangeDisplayed: 5,
+        onPageChange: handlePageClick,
+        containerClassName: "pagination",
+        subContainerClassName: "page-item",
+        activeClassName: "active"
+      })
     })]
   });
 }
@@ -6004,7 +5986,7 @@ function JobsList() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (JobsList);
 
 if (document.getElementById('listJobs')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(JobsList, {}), document.getElementById('listJobs'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(JobsList, {}), document.getElementById('listJobs'));
 }
 
 /***/ }),
@@ -6113,7 +6095,7 @@ function AddJob() {
 
   var propertyList = null;
 
-  var findPropertyList = function findPropertyList() {
+  var findPropertiesList = function findPropertiesList() {
     window.axios.get("property-list").then(function (resp) {
       if (resp.data.message == "success") {
         propertyList = resp.data.data.properties; // check first if no property added first, then I can loop the list
@@ -6152,7 +6134,7 @@ function AddJob() {
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    findPropertyList();
+    findPropertiesList();
   }, [propertyList]); // Store new property after validation
 
   var storeJob = function storeJob(e) {
@@ -6173,7 +6155,7 @@ function AddJob() {
         console.log(res);
         setErrorMessage({
           type: 'Success',
-          message: "Job successfully logged, check on the list the job just added."
+          message: 'Successfully logged, click on "Jobs list" to see the job just added.'
         }); // delete all fields
 
         setFormData({
@@ -6181,7 +6163,7 @@ function AddJob() {
           description: ""
         }); // reload properties list
 
-        findPropertyList();
+        findPropertiesList();
       })["catch"](function (err) {
         var errorMessage = "";
 
@@ -6209,7 +6191,7 @@ function AddJob() {
           href: "/property-jobs/",
           className: "btn btn-primary",
           target: "_blank",
-          children: "Properties List"
+          children: "Jobs list"
         }), " "]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {}), errorMessage.message !== "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ResponseMessage, {
         type: errorMessage.type,
@@ -13515,6 +13497,106 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/custom.css":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/custom.css ***!
+  \********************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ":root{\n    --primary-color: #007bff;\n}\n\nbody{\n    /* background: #414F74;margin-top:0px;background-image: linear-gradient(#414F74, #697aa7); */\n    font-size: 14px;\n    /* background: linear-gradient(to bottom,#404a55 0,#646e77 100%); */\n    /* background: linear-gradient(to bottom,#404a55 0,#505a63 100%); */\n    color: #000;\n}\np, ol, ul {\n    font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    color: #000;\n    font-size: 14px;\n    text-align: left !important;\n}\nul{\n    padding-left: 15px;\n}\n\n\nh1, h2{display: block;}\n\n.lazy-load-image-background.blur.lazy-load-image-loaded > img {\n    opacity: 1;\n    transition: opacity .3s;\n    height: auto;\n}\n\na:hover{\n    text-decoration: none;\n    transition: unset;\n}\n.policy-page a{\n    font-size: 14px;\n    font-weight: 700;\n}\n.p_bg {\n    background: linear-gradient(\n180deg,#fac47a 0,#f7931e)!important;\n}\n\n.img_show span{\n    width: 100%;\n}\n.img_z_index span{\n    z-index: 1000;\n}\n\n.btn_1 {\n    position: relative;\n    line-height: 1.42857143;\n    background-color: #007bff;\n    border: 1px solid #e24d0c;\n    border-radius: 4px;\n    font-weight: 700;\n    color: #fff;\n    cursor: pointer;\n    height: 46px;\n    width: auto;\n    text-align: center;\n    vertical-align: top;\n    height: 45px;\n    padding: 10px 14px 10px 14px;\n    font-size: 18px;\n    outline: none !important;\n}\n.btn_1:after{\n    border-top: 1.8px solid #ffa17c;\n    position: absolute;\n    top: 1px;\n    /* background: aqua; */\n    height: 2px;\n    width: 98%;\n    margin: 0 auto;\n    position: absolute;\n    top: 0;\n    left: 1%;\n    content: '';\n}\n\n/* .b_inner {\n    border-radius: 5px;\n    border-top: 1px solid #ffa17c;\n    padding: 9px 20px;\n    margin-bottom: 1px;\n} */\n.btn_1:hover {\n    background-color: #fd6017;\n    border: 1px solid #e24d0c!important;\n    color: #fff;\n}\n.btn_2 {\n    background-color: transparent;\n    border: 1px solid #ddd;\n    border-radius: 5px;\n    color: #007bff !important;\n    font-size: 18px;\n    font-weight: 700;\n    line-height: normal;\n    padding: 10px 14px;\n}\n.btn_2:hover {\n    background: #404a55!important;\n    border: 1px solid #404a55!important;\n    color: #fff!important;\n}\n.btn_3 {\n    background-color: #007bff;\n    border: 1px solid #e24d0c;\n    border-radius: 5px;\n    color: #fff!important;\n    font-size: 16px;\n    font-weight: 700;\n    line-height: normal;\n    padding: 10px 20px !important;\n}\n.btn_3:hover {\n    background-color: #fd6017;\n    border: 1px solid #e24d0c!important;\n    color: #fff;\n}\n.primary{\n    color: var(--primary-color) !important;\n}\n.header_banner.row .header_banner_txt p.h1 {\n    color: #000 !important;\n    font-weight: 700;\n    font-size: 44px;\n    line-height: 52px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\nul.react-tabs__tab-list {\n    list-style: none;\n    padding: 0;\n}\n\n\n/* Qd Section */\n#qd_section h3{\n    font-size: 20px;\n    font-weight: 500;\n    color: var(--primary-color);\n}\n#qd_section p.price{\n    font-size: 20px;\n    font-weight: 700;\n    color: var(--primary-color);\n}\n#qd_section p.name{\n    font-size: 16px;\n    font-weight: 600;\n    color: #000;\n    padding-left: 8px;\n}\n#qd_section p.review{\n    font-style: italic;\n    color: #222;\n}\n#qd_section .badge-image {\n    position: absolute;\n    right: 0;\n    top: 40px;\n}\n#qd_section span.over-text {\n    position: absolute;\n    left: 0;\n    right: 0;\n    text-align: center;\n    font-weight: 700;\n    color: #fff;\n    margin-top: 30px;\n    /* font-size: 12px; */\n}\n#qd_section span.over-text .since {\n    font-size: 12px;\n}\n#qd_section span.over-text .amount {\n    font-size: 1.4rem;\n    text-shadow: -1px 1px #3b3b3b;\n    color: #ebebeb;\n}\n#qd_section span.over-text .sold {\n    font-size: 14px;\n}\n#qd_section span.over-text .sold {\n    font-size: 14px;\n}\n#qd_section a.more{\n    font-size: 14px;\n    color: var(--primary-color);\n    font-weight: 700;\n    font-style: italic;\n}\n\n\n@media screen and (max-width:992px) {\n\n    #qd_section .col-1 img{\n        width: 50px;\n    }\n    #qd_section .col-2 .badge-image img{\n        width: 130px;\n    }\n    #qd_section .col-2 img{\n        width: 50px;\n    }\n    #qd_section span.over-text{\n        margin-top: 19px;\n    }\n    .home_page_main_full #qd_section .button_group{\n        display: flex;\n        flex-wrap: wrap;\n    }\n    #qd_section .btn_1{\n        margin-bottom: 12px;\n    }\n    .content_right {\n        text-align: center;\n        position: sticky;\n        -webkit-position: sticky;\n        position: -webkit-sticky;\n        top: 170px;\n    }\n}\n\n\n\n#con-details h6{\n    color: var(--primary-color);\n    font-size: 20px;\n    font-weight: 700;\n}\n#blog_page_right label{\n    font-size: 11px;\n    font-weight: 600;\n    margin-bottom: 3px;\n}\n#blog_page_right label:nth-last-child(1){\n    font-size: 11px;\n}\n#blog_page_right form p {\n    font-size: 9px;\n    font-weight: 500;\n    font-style: italic;\n    margin-bottom: 0;\n}\n#blog_page_right form :is(input,select,textarea){\n    font-size: 12px;\n    height: 30px;\n}\n#blog_page_right form :is(textarea){\n    font-size: 12px;\n    height: 60px;\n}\n#blog_page_right form .form-group{\n    margin-bottom: 10px;\n}\n#blog_page_right form .btn_1{\n    padding: 5px 10px !important;\n    font-size: 12px;\n    font-weight: 500;\n}\n\n\n\n\n\n\n\n/*Main- Content*/\ndiv.content {\n    background: #fff;\n    margin: 0px;\n    padding: 20px 25px 40px;\n}\n.container{\n    max-width: 1170px!important;\n}\n/*Header*/\n/* #header{\n    padding-top: 0px;\n    margin-top: 80px;\n}\n#header .header_main {\n    padding-bottom: 5px;\n    position: fixed;\n    width: 100%;\n    left: 0px;\n    right: 0px;\n    background-color: #414B55;\n    max-width: 1170px;\n    margin: 0px auto;\n    z-index: 999;\n    top:0px;\n    align-items: flex-end;\n}\n#header .head_menu{\n    margin-bottom: 16px;\n    text-align:  left;\n} */\n\n\n.header_banner.row{margin: 0 0 3px 0;background: #ffae00;border-radius: 2px;align-items: flex-end;background: linear-gradient(to bottom,#fac47a 0,#f7931e 100%);}\n.header_banner.row .header_banner_txt{padding: 40px 6% 40px 40px;}\n.header_banner.row .header_banner_txt h1{\n    color: #000 !important;\n    font-weight: 700;\n    font-size: 44px;\n    line-height: 52px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.header_banner.row .header_banner_img{padding-right: 0px;}\n.header_banner.row .header_banner_txt p{\n    color: #000;\n    font-size: 20px;\n}\n.bg_image_contact{\n}\n\n.header_banner_img.col-4.text-right img{\n    max-width: 100%;\n}\n\n/*Menu Style*/\n\n.menu-toggle {\n    position: absolute;\n    top: 50%;\n    left: 46px;\n    transform-origin: center center;\n    transform: translate(-50%, -50%) rotate(0deg);\n    height: 30px;\n    width: 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    cursor: pointer;\n    transition: transform 300ms ease;\n    z-index: 1000;\n}\n.menu-toggle span {\n    height: 4px;\n    width: 25px;\n    background-color: white;\n    transition: width 200ms ease;\n}\n.menu-toggle span:nth-child(1) {\n    width: 80%;\n    transition-delay: 200ms;\n}\n.menu-toggle span:nth-child(2) {\n    width: 100%;\n}\n.menu-toggle span:nth-child(3) {\n    width: 60%;\n    transition-delay: 400ms;\n}\n.menu-toggle span:nth-child(4) {\n    position: absolute;\n    top: 0px;\n    left: 50%;\n    transform: translateX(-50%);\n    display: block;\n    width: 4px;\n    height: 0;\n    transition: height 400ms;\n}\n\n.menu-toggeled {\n    transform: translate(-50%, -50%) rotate(45deg);\n    transition-delay: 400ms;\n}\n.menu-toggeled span:nth-child(1) {\n    width: 0;\n    transition: 200ms ease;\n}\n.menu-toggeled span:nth-child(3) {\n    width: 0;\n    transition: 200ms ease;\n    transition-delay: 150ms;\n}\n.menu-toggeled span:nth-child(4) {\n    height: 30px;\n    transition: height 200ms ease;\n    transition-delay: 200ms;\n}\n\n\n\n/*Mobile Menu Style Ends*/\n\n/*Header Contect Us Design*/\n.head_contact{text-align: right;}\n.head_contact span{display: block; color: #fff; font-size: 12px;line-height: 12px;}\n.head_contact a.call{display: block;color: #007bff;font-size: 20px;font-weight: 600;line-height: 20px;margin-bottom: 0px;text-decoration: none;text-align: right;}\n.head_contact ul {padding:0px;margin:0px;text-align: right;}\n.head_contact ul li{display: inline-block;vertical-align: top;margin: 0px 5px;font-size: 12px;line-height: 12px;color: #fff;}\n.head_contact ul li a{color: #fff;font-size: 12px;line-height: 12px;font-weight: 400;}\n\n/*Footer*/\n/* #footer{\n\n} */\n#footer {\n    margin: 0px;\n    height: unset;\n    padding: 0px;\n    border: 0px;\n    background: transparent;\n}\n#footer .foot_contact_us{\n    background: linear-gradient(to bottom,#fac47a 0,#f7931e 100%);\n    /* padding: 15px; */\n    padding: 15px 20px;\n}\n#footer .foot_contact_us{\n    text-align: left;\n}\n#footer .foot_contact_us p{\n    display: inline-block;\n    margin: 0px;\n    color: #fff;\n    font-size: 20px;\n    font-weight: 600;\n    line-height: 32px;\n}\n.foot_Copy .text-footer-mid{\n    /* margin:0px; */\n    margin-bottom: 25px;\n    padding:20px 0px;\n    /* border-top: 1px solid rgba(255,255,255,0.2); */\n    color: #fff;\n    text-align: center;\n    font-weight: 600;\n    font-size: 12px;\n    line-height: 16px;\n}\n#footer .foot_menus {\n    padding: 20px 0px 50px;\n}\n\n#footer .foot_menus h4{\n    color: #007bff;\n    font-weight: 600;\n    font-size: 18px;\n    margin-bottom: 20px;\n    display: block;\n    margin-bottom: 20px;\n}\n\n#footer .foot_menus a{\n    margin: 0px;\n    color: #fff;\n    font-size: 14px;\n    margin: 0 0 2px 0px;\n}\n#footer .foot_menus a:hover{\n    text-decoration: underline;\n}\n#footer .foot_menus h3{\n    font-size: 20px;\n    color: var(--primary-color);\n    font-weight: 600;\n}\n#footer .foot_menus a:last-of-type{\n    margin-right: 0px;\n}\n#footer .foot_logo{\n    margin-bottom: 30px;\n}\n\n#footer .foot_contact_us p span{\n    font-size: 30px;\n    line-height: 45px;\n    color: #404a55;\n}\n#footer .foot_contact_us a{\n    width: auto;\n    margin:0px;\n    padding:0px;\n    float: right;\n    color: #fff;\n    /* background-color: #007bff; */\n    /* border: 1px solid #e24d0c; */\n    margin-top: 1px;\n    font-size: 18px;\n    text-decoration: none!important;\n    padding: 8px 15px !important;\n    border-radius: 5px;\n}\n\n.bottom_links{\n    text-align: center;\n}\n\n.text-footer-mid{\n    width: 100%;\n    text-align: center;\n}\n\n\n/*Home Page Changes*/\n\n.home_page_main_full .clearfix{margin: 0px; position: relative;}\n.home_page_main_full #index_title{\n    background: transparent;\n    height: unset;\n    margin: 0px;\n}\n.home_page_main_full #index_title h1 {\n    text-align: left;\n    font-size: 36px;\n    line-height: 48px;\n    color: var(--primary-color);\n    font-weight: 500;\n    margin-bottom: 20px;\n}\n.home_page_main_full p {\n    font-size: 14px;\n}\n\n.home_page_main_full #index_title h1 span{\n    display: block;\n    color: var(--primary-color);\n}\n.home_page_main_full p.pheader{\n    color: var(--primary-color);\n    font-weight: 500;\n    font-size: 20px;\n}\n\n.home_page_main_full h2{\n    text-align: left;\n    font-size: 36px;\n    line-height: 48px;\n    color: var(--primary-color);\n    font-weight: 400;\n    margin-bottom: 20px;\n}\n\n.promo_item{\n    padding: 20px 0px;\n    border-top: 1px solid var(--primary-color);\n    display: flex;\n}\n\n.promo_item_img {\n    width: 10%;\n    text-align: center;\n}\n\n.promo_item_txt {\n    width: 90%;\n    padding-left: 4%;\n}\n\n.promo_item h4.pheader{\n    color: #414f74;\n    font-weight: 500;\n    font-size: 20px;\n    text-transform: capitalize;\n}\n\n.promo_item p.pheader_content{\n    color: var(--primary-color);\n    font-weight: 600;\n    font-size: 22px;\n}\n\n.bottom_links a{\n    display: inline-block;\n    padding: 8px 14px;\n    background: var(--primary-color);\n    color: #fff;\n    border: 1px solid var(--primary-color);\n    border-radius: 2px;\n    font-size: 14px;\n    line-height: 24px;\n    text-decoration: none;\n    margin-right: 5px;\n    font-weight: 600;\n    text-transform: uppercase;\n    border-radius: 5px;\n}\n.bottom_links a:hover{\n    background: #fff;\n    color: var(--primary-color);\n}\n.bottom_links a:last-of-type{\n    background: #fff;\n    color: var(--primary-color);\n    margin-right: 0px;\n}\n.bottom_links a:last-of-type:hover{\n    background: var(--primary-color);\n    color: #fff;\n}\n\n/* .home_page_main_full .index_overflow.clearfix .box-top {\n    width: 75%;\n    float: left;\n} */\n.home_page_main_full .index_overflow .box-container_right {\n    /* width: 25%;\n    float: left; */\n    text-align: center;\n    position: sticky;\n    -webkit-position: sticky;\n    position: -webkit-sticky;\n    top: 120px;\n}\n.home_page_main_full .index_overflow .box-container_right .box{\n    float: none;\n    display: inline-block\n}\n.home_page_main_full .index_overflow .box-container_right .box p{\n    font-weight: 600;\n    color: #000;\n    padding-top: 15px;\n}\n/*Other Contents*/\n\n/*Why Us Block Style - Home Page*/\n.home_why_use_items {\n    width: 100%;\n    display: flex;\n    flex-wrap: wrap;\n}\n.point-item{padding-top: 20px!important;}\n.home_why_use_item{\n    text-align: center;margin-bottom: 20px;width: 25%;padding:0px 15px;float: left;padding-top: 20px;\n}\n.home_why_use_item img{max-width: 70px;margin: 0px auto 15px;}\n.home_why_use_item h2{\n    text-align: center;\n    margin-bottom: 10px;\n    color: var(--primary-color);\n    font-weight: 700;\n    font-size: 20px;\n    line-height: 26px;\n    text-decoration: underline;\n}\n.home_why_use_item a:hover h2 {color: #414F74}\n.home_why_use_item a{color: #414F74}\n.home_why_use_item p{text-align: center;}\n\n/*Main Content*/\n.div.content{\n    padding-top: 30px;\n}\n\n/*About Wills Page*/\n\n.page_title{\n    color: #414f74;\n    font-weight: 500;\n    font-size: 32px;\n    margin-bottom: 20px;\n}\n\n.abou_us_col .clearfix.no_top{margin-top: 0px!important;}\n.no_margin {margin-top: 0px!important}\n#more_info {float: none;}\n\n/*FAQ Page*/\n.faq_main h3{\n    text-align: left;\n    font-size: 30px;\n    line-height: 42px;\n    color: #414f74;\n    font-weight: 600;\n    margin-bottom: 20px;\n}\n.faq_main .faqcell p strong a   {\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 30px;\n}\n.faq_main .backcell a{\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 30px;\n}\n.faq_main td.faqcell{padding: 5px 10px}\n.faq_main .backcell a:hover{\n    color: var(--primary-color);\n}\n.faq_main tr{\n    line-height: 24px;\n    border-bottom: 5px solid #fff;\n}\n\n.show-md-xs {\n    display: none;\n}\n.hidden-md-xs{\n    display: block;\n}\n\n/*Responsive*/\n@media screen and (max-width:1200px) {\n\n    .container {max-width: 97%!important;}\n\n    .home_page_main_full .index_overflow .box-container_right .box{margin: 10px 0px;}\n}\n\n@media screen and (max-width:1100px) {\n    /*Header*/\n    .sidebar ul li a {font-size: 13px;margin-right: 10px;}\n}\n\n@media screen and (max-width:1024px) {\n\n}\n\n@media screen and (max-width:767px) {\n\n    /*Common Font Style For P, OL, UL Tags*/\n    p, ol, ul{font-size: 13px;}\n\n    /*Header and Banner*/\n    .header_banner.row .header_banner_txt h1 {font-size: 30px; line-height: 42px;}\n    .header_banner.row .header_banner_txt p{font-size: 14px; line-height: 24px;}\n\n    /*Mobile Menu Changes*/\n\n    #header .header_main {\n        padding-left: 80px;\n    }\n    .hidden-md-xs{display: none;}\n\n    /*Home Page*/\n    .home_page_main_full .index_overflow.clearfix .box-top {padding-right: 20px}\n    .home_page_main_full #index_title h1 {font-size: 28px; line-height: 34px;}\n    .home_page_main_full p.pheader{font-size: 16px;}\n\n    .promo_item_img {\n        width: 15%;\n    }\n\n    /*Footer*/\n    #footer .foot_contact_us p {font-size: 16px;margin-right: 10px;}\n    #footer .foot_contact_us p span {font-size: 25px;}\n    #footer .foot_contact_us a {font-size: 13px;padding: 8px 10px;}\n    /* #footer .foot_menus a{margin: 0px 10px} */\n\n    /*Inner Pages*/\n    .abou_us_col .clearfix.no_top {height: 100%;}\n\n    #more_info {\n        float: none;\n        margin: 10px 0px;\n    }\n\n    .logo {background: transparent;}\n\n    .home_why_use_item {width: 30%;}\n}\n\n@media screen and (max-width:767px) {\n    /*Header*/\n    .header_banner.row {position: relative;}\n\n    /*Banner*/\n    .header_banner.row{\n        display: block;\n    }\n    .header_banner.row .header_banner_txt{\n        max-width: 100%;\n        padding: 20px;\n    }\n    .header_banner.row .header_banner_txt h1 {\n        font-size: 32px;\n        line-height: 38px;\n        color: #fabb68!important;\n        font-weight: 500;\n    }\n    .header_banner.row .header_banner_txt p {\n        text-align: center;color: #fff;\n    }\n\n\n    .header_banner.row .header_banner_txt {text-align: center;}\n    .header_banner.row .header_banner_img{display: none;}\n    .header_banner.row {background: transparent}\n\n    .show_mobile{\n        display: block;\n        font-weight: 700;\n        color: #fff;\n        font-size: 20px;\n    }\n    .show_mobile span{\n        display: block;\n        color: #fabb68!important;\n        margin-top:10px;\n    }\n    .hidden_mobile{display: none;}\n\n    /*Box Contents Home PAge*/\n    .promo_item {\n        padding: 20px 0px 40px;\n        background: #fff;\n        margin-bottom: 0px;\n        position: relative;\n    }\n    .promo_item::after {\n        content: \"\";\n        width: calc(100% + 40px);\n        background: #414f74;\n        position: absolute;\n        left: 0px;\n        display: block;\n        right: 0px;\n        bottom: 0px;\n        height: 25px;\n        left: -20px;\n    }\n\n    .show-md-xs {\n        display: block;\n        padding: 0px;\n        background: #fff;\n        margin-bottom: 15px;\n    }\n\n    .promo_item{\n        flex-direction: column;\n        align-items: center;\n        border-top:0px;\n    }\n    .promo_item_txt {\n        width: 100%;\n        padding-left: 0px;\n        text-align: center;\n    }\n    .promo_item p.pheader_content{\n        text-align: center;\n    }\n    .promo_item_img {\n        width: 30%;\n        margin-bottom: 15px;\n    }\n    .home_page_main_full h2{\n        font-size: 24px;\n        line-height: 33px;\n        color: #414f74;\n        text-align: center;\n    }\n    .promo_item_txt p{\n        text-align: center;\n    }\n\n    .home_page_main_full .index_overflow.clearfix .box-top .show-md-xs{\n        padding-top:0px;\n    }\n\n    .promo_item::after{\n        width: calc(100% + 80px);\n        left: -40px;\n    }\n    div.content {padding: 20px;}\n\n    /* div.content.index{\n        padding: 0px; background: transparent;\n    } */\n\n    /* div#more_info.clearfix {\n        padding: 20px;\n        margin-bottom: 10px;\n        background: #fff;\n    } */\n    /* .home_page_main_full .index_overflow .box-container_right{\n        padding: 20px;\n        margin-bottom: 10px;\n        background: #fff;\n    } */\n\n    /*Home Page*/\n    .home_page_main_full .index_overflow.clearfix .box-top{\n        width: 100%;\n        padding-right:0px;\n        margin-bottom: 20px;\n        float: none;\n    }\n    .home_page_main_full .index_overflow .box-container_right {\n        width: 100%;\n        float: none;\n        text-align: center;\n        position: relative;\n        top: 0px;\n        display: flex;\n        justify-content: space-evenly;\n        flex-wrap: wrap;\n    }\n    /* .box-top div:nth-of-type(2){\n\n    } */\n    .BotNav{\n        display: block;\n        text-align: center;\n    }\n\n    .show-md-xs{\n        padding-top: 20px;\n    }\n    .home_why_use_item h2 {\n        font-weight: 500;\n        font-size: 20px;\n        line-height: 26px;\n    }\n    .promo_item_txt ul {\n        list-style: none;\n        padding: 0px;\n        text-align: left;\n        padding: 0 0 0 10px;\n    }\n\n    .home_page_main_full h2 {display: none;}\n    .home_page_main_full .index_overflow.clearfix .box-top .show-md-xs .promo_item:first-of-type{padding-top:0px;}\n\n    .promo_item_txt ul li {\n        font-size: 0px;\n        margin-bottom: 5px;\n        padding-left: 30px;\n    }\n\n    .promo_item_txt ul li a {\n        font-size: 0px;\n    }\n\n    .promo_item_txt ul li strong {\n        display: inline-block;\n        text-align: center;\n        font-size: 14px;\n    }\n    .promo_item_txt p{display: none;}\n    .promo_item p.pheader_content {display: block;}\n    .promo_item_img {display: none;}\n    .promo_item p.pheader_content {\n        display: block;\n        font-size: 50px;\n        font-weight: 700;\n        color: var(--primary-color);\n    }\n    .promo_item p.pheader_content span{display: block;margin-top: 0px;line-height: 20px;font-size: 18px;color: #414f74}\n    .promo_item h4.pheader {\n        color: #000;font-weight: 700;font-size: 20px;\n    }\n\n    /*Footer*/\n    #footer .foot_contact_us p {display: inline-block;margin-bottom: 10px;font-size: 12px;line-height: 16px; text-align: center;}\n    #footer .foot_contact_us {text-align: center;}\n    #footer .foot_contact_us a {float: none;display: inline-block;}\n    #footer .foot_contact_us p span {font-size: 14px;line-height: 16px;}\n    #footer .foot_menus {\n        padding: 20px 0px;\n    }\n    #footer .foot_contact_us {padding: 0px;background: transparent; }\n    #footer .foot_contact_us p {display: none;}\n    #footer .foot_contact_us a {\n        position: fixed;\n        bottom: 0px;\n        font-weight: 600;\n        left: 0px;\n        width: 100%;\n        background: #fabb68;\n        text-align: center;\n        border: 1px solid #fabb68;\n    }\n    .home_page_main_full #index_title h1 {\n        font-size: 22px;\n        line-height: 32px;\n        text-align: center;\n    }\n    .home_page_main_full p,div#more_info.clearfix p{\n        text-align: center;\n    }\n    #more_info a, #more_info2 a {\n        float: none;\n    }\n    #more_info, #more_info2 {\n        text-align:center;\n    }\n    #more_info p, #more_info2 p.thisOne, #more_info a.fleft {float: none;margin:0px;bottom: 0px}\n\n    .show-md-xs {\n        display: block;\n    }\n    .hidden-md-xs{\n        display: none;\n    }\n\n    div.content p{text-align: center;}\n    .page_title{text-align: center;font-size: 24px;line-height: 36px;}\n\n    /*Other Pages*/\n    #right_col p.notage, #right_col .side_bot, #right_col .side_mid, #right_col p.side_top {width: 100%}\n\n    .contact_us_bottom_only_mobile {\n        text-align: center;\n    }\n    .contact_us_bottom_only_mobile h4{\n        font-weight: 700;\n        color: #007bff;\n        margin-top: 20px;\n        margin-bottom: 10px;\n        font-size: 20px;\n        line-height: 20px;\n    }\n    .contact_us_bottom_only_mobile h2{\n        font-size: 36px;\n        line-height: 36px;\n        color: #000;\n        font-weight: 700;\n        margin-bottom: 20px;\n    }\n    .contact_us_bottom_only_mobile p{text-align: center!important;}\n    .contact_us_bottom_only_mobile p a{\n        margin-top: 1px;\n        padding: 12px 15px;\n        display: inline-block;\n        border-radius: 4px;\n        font-size: 18px;\n        line-height: 18px;\n        color: #fff;\n        background-color: #007bff;\n        font-weight: 700;\n        border: 1px solid #e24d0c;\n    }\n    .payment_box .row{\n        display: block;\n    }\n    .payment_box .row > div{\n        max-width: 100%;\n    }\n}\n\n@media screen and (max-width:600px) {\n\n    .desktop{\n        display: none;\n    }\n}\n\n@media screen and (min-width:600px) {\n    .mobile{\n        display: none;\n    }\n}\n\n\n/* Header */\nheader .nav-item {\n    margin: 0 10px;\n}\nheader .nav-item .nav-link {\n    font-size: 14px;\n    font-weight: 700;\n}\nheader .nav-link:hover {\n    box-shadow: 1px 6px 0 -2px var(--primary-color);\n    height: 45px;\n}\n.active{\n    box-shadow: 1px 6px 0 -2px var(--primary-color);\n    color: var(--primary-color) !important;\n    height: 45px;\n}\nheader .nav-item:hover .nav-link {\n    color:  var(--primary-color) !important;\n}\nheader .nav-item.active {\n    height: 45px;\n    box-shadow: 1px 6px 0 -2px var(--primary-color);\n}\nheader .nav-item.active .nav-link {\n    color: var(--primary-color) !important;\n}\nheader .navbar_contact .call-us {\n    font-size: 12px;\n    font-weight: 600;\n}\nheader .navbar_contact .figure {\n    font-size: 20px;\n    font-weight: 700;\n    color: var(--primary-color);\n}\nheader .navbar_contact .navbar_link a {\n    font-size: 12px;\n    font-weight: 400;\n    color: #fff;\n    padding: 0 3px;\n}\nheader .navbar_contact .navbar_link a:hover {\n    text-decoration: underline;\n}\n\n/* Blog Page */\n#c_blog .blog_box{\n    padding: 2px 2px;\n    position: relative;\n    border: 1px solid #ddd;\n    margin: 12px 0;\n}\n#c_blog .blog_box .h_img{\n    background-color: #888;\n    padding: 16px 0;\n    text-align: center;\n    height: 72px;\n    overflow: hidden;\n}\n#c_blog .blog_box img{\n    min-width: 180px;\n    margin: 0 auto;\n}\n#c_blog .blog_box img.next{\n    min-width: 15px;\n}\n#c_blog .blog_box img.arrow{\n    width: 15px;\n}\n\n#c_blog .blog_title{\n    margin-top: 5px;\n    line-height: 24px;\n    font-size: 16px;\n    color: #007bff;\n    font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif !important;\n}\n#c_blog .blog_title{\n    margin-top: 4px;\n    border-bottom: 1px solid #ddd;\n    padding-bottom: 3px;\n}\n#c_blog .contents{\n    overflow: hidden;\n}\n#c_blog .blog_content{\n    font-size: 13px;\n    font-family: inherit !important;\n    color: #333;\n    /* text-overflow: ellipsis; */\n    display: block;\n    /* width: 210px;  */\n}\n#c_blog .blog_content p{\n    font-family: inherit !important;\n    font-size: 13px;\n    text-align: justify !important;\n}\n#c_blog .blog_content a{\n    font-family: inherit !important;\n    font-size: 13px;\n    color: #000 !important;\n    text-decoration: none !important;\n}\n#c_blog .readmore a{\n    background: #007bff;\n    border: 1px solid #007bff;\n    color: #fff;\n    background: #007bff;\n    border: 1px solid #007bff;\n    color: #fff;\n    padding: 5px 10px;\n    border-radius: 6px;\n    font-size: 13px;\n    height: 32px;\n    /* position: absolute;\n    bottom: 5px;\n    right: 10px; */\n}\n#c_blog .readmore a:hover{\n    background-color: #007bffcf;\n}\n#c_blog .search input{\n    border: 1px solid #ccc;\n    outline: none;\n    border-top-left-radius: 4px !important;\n    border-bottom-left-radius: 4px !important;\n    padding: 7px 10px !important;\n    font-size: 12px;\n    width: 230px;\n}\n#c_blog .search button{\n    border: 1px solid #ccc;\n    outline: none;\n    border-top-right-radius: 4px !important;\n    border-bottom-right-radius: 4px !important;\n    padding: 7px 15px !important;\n    font-size: 12px;\n}\n#c_blog .search button i{\n    color: #555;\n}\n#c_blog .active{\n    box-shadow: none;\n}\n#s_blog .boxes .box_{\n    cursor: pointer;\n}\n#s_blog .boxes .box_:hover{\n    background-color: #d4d4d4 !important;\n}\n#s_blog .boxes .box_ h6{\n    font-size: 12px;\n    font-weight: 700;\n}\n#s_blog .boxes .box_ p{\n    font-size: 11px;\n    color: #363636;\n}\n#s_blog .blog_content p{\n    font-size: 14px;\n    color: #363636;\n}\n#s_blog .blog_content a{\n    font-size: 14px;\n    color: var(--primary-color) !important;\n    text-decoration: underline !important;\n}\n.home_page_main_full .index_overflow .box-container_right .box image{\n    width: 100%;\n}\n\n/* About page */\n\n#about_page .stages .stage h2{\n    font-size: 20px;\n    font-weight: 700;\n    color: var(--primary-color);\n}\n#about_page .stages .stage :is(p,li) {\n    font-size: 14px;\n}\n#about_page .stages .stage {\n    border-top: 1px solid var(--primary-color);\n    padding: 15px 0;\n}\n\n/* Service Page */\n\n#sevice_page #qd_section h3 {\n    font-size: 24px;\n}\n#sevice_page #qd_section p.price {\n    font-size: 30px;\n}\n#sevice_page #qd_section span.over-text .sold {\n    font-size: 12px;\n}\n#sevice_page #qd_section span.over-text .amount {\n    font-size: 18px;\n}\n#sevice_page #qd_section span.over-text {\n    margin-top: 19px;\n}\n@media only screen and (max-width: 992px) and (min-width: 768px) {\n\t#sevice_page .promo_item {\n        position: relative;\n    }\n    #sevice_page #qd_section .col-2 {\n        position: absolute;\n        top: -30px;\n        right: 0;\n    }\n    #sevice_page #qd_section .col_2{\n        position: absolute;\n        top: -50px;\n        right: 0;\n    }\n    #sevice_page #qd_section .col-2 .badge-image img {\n        width: 85px;\n    }\n    #sevice_page #qd_section span.over-text {\n        margin-top: 8px;\n        line-height: 17px;\n    }\n    #qd_section span.over-text .since {\n        font-size: 10px;\n    }\n    #sevice_page #qd_section span.over-text .amount {\n        font-size: 16px;\n    }\n    #sevice_page #qd_section span.over-text .sold {\n        font-size: 10px;\n    }\n}\n\n/* Contact Page */\n#contact_us p{\n    color: rgb(64 74 85);\n    margin: 0;\n    text-align: left;\n}\n#contact_us .form_section label{\n    color: rgb(64 74 85);\n    font-weight: 700;\n    margin-bottom: 5px;\n}\n#contact_us .fax_us p:nth-child(2){\n    color: var(--primary-color);\n    font-size: 24px;\n}\n\n#contact_us .email_us a{\n    color: var(--primary-color);\n    font-size: 13px;\n    text-decoration: underline;\n}\n#contact_us .email_us a:hover{\n    color: #3b4a55;\n}\n#contact_us .head_para p{\n    color: #000;\n}\n\n/* Complaints Page*/\n\n#complaints #con-details p{\n    margin-bottom: 0 ;\n}\n#complaints #con-details a{\n    font-size: 14px;\n}\n#complaints #con-details a:hover{\n    color: var(--primary-color);\n}\n#complaints #con-details .bg_gray{\n    border-radius: 5px;\n}\n#complaints a{\n    font-size: 14px;\n    color: var(--primary-color);\n    text-decoration: underline;\n}\n\n#divorce_resources a{\n    font-size: 14px;\n    color: var(--primary-color);\n    cursor: pointer;\n    text-decoration: underline;\n}\n#divorce_resources a:hover{\n   text-decoration: none;\n}\n\n#how_to_divorce .p_bar{\n    position: relative;\n}\n\n#how_to_divorce hr{\n    border-color: #000;\n\n}\n.dull{color: #666}\n.marl_4 {padding-left: 40px;}\n.mag_top_10{margin-top: 20px;}\n/* .primary{font-weight: 600;font-size: 18px;margin: 10px 0px;} */\nh2.primary{font-weight: 400;font-size: 32px;margin: 10px 0px;}\n.personalised_service .home_why_use_item h2{text-decoration: none;}\n.home_why_use_item img{height: 61px;width: 61px;}\n#how_to_divorce .dot{\n    position: absolute;\n    border-color: #000;\n    width: 10px;\n    height: 10px;\n    border-radius: 5px;\n    background: #007bff;\n    top: -4px;\n    z-index: 1;\n}\n#how_to_divorce .dot:nth-of-type(1){\n   left: 0;\n}\n#how_to_divorce .dot:nth-of-type(2){\n    right: 0px;\n}\n#how_to_divorce .gap{\n    position: absolute;\n    width: 10px;\n    height: 20px;\n    background: #007bff;\n    top: -9px;\n    z-index: 1;\n}\n#how_to_divorce .gap:nth-of-type(3){\n    left: 33%;\n}\n#how_to_divorce .gap:nth-of-type(4){\n    right: 33%;\n}\n#how_to_divorce  .prg_section img{\n    z-index: 100;\n    background-color: #fff;\n    height: 100px;\n}\n#how_to_divorce  .prg_section p{\n    font-size: 14px;\n}\n#how_to_divorce  .prg_section hr{\n    position: relative;\n    bottom: 150px;\n    width: 90%;\n}\n#how_to_divorce  .btm_box{\n    background: #ddd;\n    padding: 15px 30px;\n    box-shadow: 1px 1px 2px 2px rgb(0 0 0 / 30%);\n}\n#c_blog .pagination img{\n    margin-top: 3px;\n}\n.site_map .sitemap_item a{\n    font-size: 15px;\n    color: var(--primary-color);\n    font-weight: 500;\n}\n.site_map .sitemap_item a:hover{\n    text-decoration: underline;\n\n}\n\n#order_now .summary_box{\n    border-radius: 5px;\n    background: #fff;\n    box-shadow: 1px 0 2px 2px rgb(0 0 0 / 40%);\n}\n#order_now .summary_box .heading{\n    padding: 10px 20px;\n    background: #007bff;\n    color: #fff;\n    font-weight: 700;\n}\n#order_now .summary_box .heading{\n    padding: 10px 20px;\n    background: #007bff;\n    border-top-left-radius: 5px;\n    border-top-right-radius: 5px;\n}\n#order_now .summary_box .heading h5{\n    background: #007bff;\n    color: #fff;\n    font-weight: 700;\n}\n#order_now .summary_box .content_side h6{\n    font-size: 20px;\n    color: #007bff;\n}\n#order_now .summary_box .content_side .price{\n    font-size: 20px;\n    color: #007bff;\n    font-weight: 700;\n}\n#order_now .payment_box{\n    border-radius: 5px;\n    background: #fff;\n    box-shadow: 1px 0 2px 2px rgb(0 0 0 / 40%);\n}\n#order_now .payment_box form input{\n    border: 1px solid #ccc;\n    border-radius: unset;\n    font-size: 14px;\n\n}\n#order_now .payment_box form label{\n    color: #000;\n    font-weight: 700;\n    margin-bottom: 2px;\n    font-size: 14px;\n}\n#order_now .payment_box .payment_method .paypal_button .inner{\n    width: 100%;\n    display: inline-block;\n    margin-top: 1px;\n    border-radius: 4px;\n    padding: 10px;\n    background-color: unset;\n    outline: unset;\n    border: unset;\n    border-top: 1px solid #ffd278;\n\n}\n#order_now .payment_box .payment_method .paypal_button{\n    /* background-color: #ffc521;\n    border: 1px solid #f1ae08; */\n    width: 230px;\n    /* max-width: 100%;\n    min-height: 44px;\n    display: block;\n    text-align: center;\n    padding: 0;\n    border-radius: 4px;\n    cursor: pointer;\n    margin-bottom: 8px; */\n}\n\n#order_now .payment_box .payment_method .card_button .inner{\n    width: 100%;\n    display: inline-block;\n    margin-top: 1px;\n    border-radius: 4px;\n    padding: 11px 5px;\n    background-color: unset;\n    outline: unset;\n    border: unset;\n    border-top: 1px solid #ffa17c;\n\n}\n#order_now .payment_box .payment_method .card_button{\n    background-color: #007bff;\n    border-bottom: 1px solid #e24d0c;\n    border-left: 1px solid #e24d0c;\n    border-right: 1px solid #e24d0c;\n    width: 230px;\n    max-width: 100%;\n    min-height: 44px;\n    display: block;\n    text-align: center;\n    padding: 0;\n    border-radius: 4px;\n    cursor: pointer;\n}\n#order_now .payment_box :is(.inner){\n    display: inline-block;\n    color: #000;\n    font-weight: 700;\n    font-size: 12px;\n    margin-right: 4px;\n}\n#order_now .payment_box :is(span){\n    display: inline-block;\n    color: #fff;\n    font-weight: 700;\n    font-size: 12px;\n    margin-right: 4px;\n}\n#order_now .payment_box .payment_method a{\n    font-size: 14px;\n    color: var(--primary-color);\n    text-decoration: underline;\n\n}\n\n/* QuickOnline Service */\n\n#QuickOnlineService th{\n    border-bottom: 1px solid #dee2e6;\n}\n#QuickOnlineService table{\n    border: 1px solid #dee2e6;\n}\n#QuickOnlineService .table :is(th ,td) {\n   font-size: 13px;\n}\n#QuickOnlineService .table th {\n    font-size: 14px;\n    text-align: center;\n }\n #QuickOnlineService .table td{\n    text-align: center;\n }\n #QuickOnlineService .table th:nth-child(1) {\n    font-size: 14px;\n    text-align: left;\n    font-weight: 500;\n }\n #QuickOnlineService .table tr:nth-last-child(1) td {\n    font-size: 15px;\n }\n #QuickOnlineService .table td:nth-child(6) {\n    background-color: #e9ffee;\n }\n #QuickOnlineService .table thead {\n    background-color: #535d67;\n    color: #fff;\n }\n\n /* Persnalised Service */\n\n#PersnalisedService th{\n    border-bottom: 1px solid #fff;\n}\n#PersnalisedService table{\n    border: 1px solid #dee2e6;\n}\n#PersnalisedService .table :is(th ,td) {\n   font-size: 13px;\n   padding: 7px 10px;\n   border-bottom: 1px solid #fff;\n}\n#PersnalisedService .table_2 :is(th ,td) {\n    padding: 10px;\n }\n#PersnalisedService .table th {\n    font-size: 14px;\n    text-align: center;\n    background: #d7dbdf;\n }\n #PersnalisedService .table td{\n    text-align: center;\n    background: #d7dbdf;\n }\n #PersnalisedService .table_1 td:nth-child(2){\n    text-align: center;\n    background: #f9c982;\n }\n #PersnalisedService .table th:nth-child(1) {\n    font-size: 14px;\n    text-align: left;\n    font-weight: 500;\n    font-weight: 600;\n }\n #PersnalisedService .table td:nth-child(6) {\n    background-color: #e9ffee;\n }\n #PersnalisedService .table thead th{\n    background-color: #535d67 !important;\n    color: #fff;\n }\n #PersnalisedService :is(input,textarea){\n    font-size: 13px;\n }\n\n  /* PersnalPlus Service */\n\n#PersnalPlus th{\n    border-bottom: 1px solid #fff;\n}\n#PersnalPlus table{\n    border: 1px solid #dee2e6;\n}\n#PersnalPlus .table :is(th ,td) {\n   font-size: 13px;\n   padding: 7px 10px;\n   border-bottom: 1px solid #fff;\n}\n#PersnalPlus .table_2 :is(th ,td) {\n    padding: 10px;\n }\n#PersnalPlus .table th {\n    font-size: 14px;\n    text-align: center;\n    background: #d7dbdf;\n }\n #PersnalPlus .table td{\n    text-align: center;\n    background: #d7dbdf;\n }\n #PersnalPlus .table_1 td:nth-child(2){\n    text-align: center;\n    background: #f9c982;\n }\n #PersnalPlus .table th:nth-child(1) {\n    font-size: 14px;\n    text-align: left;\n    font-weight: 500;\n    font-weight: 600;\n }\n #PersnalPlus .table td:nth-child(6) {\n    background-color: #e9ffee;\n }\n #PersnalPlus .table thead th{\n    background-color: #535d67 !important;\n    color: #fff;\n }\n #PersnalPlus :is(input,textarea){\n    font-size: 13px;\n }\n #court_locator .btn.focus, #court_locator .btn :active{\n    outline: 0;\n    box-shadow: unset !important;\n }\n\n /* slick-track {\n    display: flex !important;\n  }\n\n  .slick-slide {\n    height: auto !important;\n  } */\n\n@media screen and (max-width: 992px){\n    .accordion__panel {\n        background-color: #fff;\n    }\n}\n\n@media screen and (max-width: 768px){\n    header .nav-link:hover {\n        box-shadow: unset;\n    }\n    .active {\n        box-shadow: unset;\n        color: var(--primary-color) !important;\n        height: unset;\n    }\n\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Equal height */\n\n.row.equal-cols {\n  display: flex;\n  flex-wrap: wrap;\n}\n\n.row.equal-cols:before,\n.row.equal-cols:after {\n  display: block;\n}\n\n.row.equal-cols > [class*='col-'] {\n  display: flex;\n  flex-direction: column;\n}\n\n.row.equal-cols > [class*='col-'] > * {\n  flex: 1 1 auto;\n}\n\n\n/* Button style */\n/* .custom-btn {\n    color: #fff;\n    border-radius: 4px;\n    padding: 7px 25px;\n    font-size: 17px;\n    font-weight: 600;\n    background: transparent;\n    cursor: pointer;\n    transition: all 0.3s ease;\n    position: relative;\n    display: inline-block;\n    box-shadow: inset 0px 2px 2px 0px rgb(250 250 250 / 50%);\n    outline: none;\n  } */\n/* 14 */\n/* .btn-14 {\n    background: #007bff;\n    border: none;\n    z-index: 1;\n  }\n  .btn-14:after {\n    position: absolute;\n    content: \"\";\n    width: 100%;\n    height: 0;\n    top: 0;\n    left: 0;\n    z-index: -1;\n    border-radius: 5px;\n    background-color: #3b4a55;\n    background-image: linear-gradient(315deg, #3b4a55 0%, #3b4a5575 74%);\n    box-shadow: inset 2px 2px 2px 0px rgb(255 255 255 / 50%), 7px 7px 20px 0px rgb(0 0 0 / 10%), 4px 4px 5px 0px rgb(0 0 0 / 10%);\n    transition: all 0.3s ease;\n  }\n  .btn-14:hover {\n    color: #fff;\n  }\n  .btn-14:hover:after {\n    top: auto;\n    bottom: 0;\n    height: 100%;\n  }\n  .btn-14:active {\n    top: 2px;\n  } */\n\n  /* btn_2 */\n\n  /* .btn_2 {\n    background: #fff;\n    border: none;\n    z-index: 1;\n    border: 1px solid !important;\n  }\n  .btn_2:after {\n    position: absolute;\n    content: \"\";\n    width: 100%;\n    height: 0;\n    top: 0;\n    left: 0;\n    z-index: -1;\n    border-radius: 5px;\n    background-color: #3b4a55;\n    background-image: linear-gradient(315deg, #3b4a55 0%, #3b4a5575 74%);\n    box-shadow: inset 2px 2px 2px 0px rgb(255 255 255 / 50%), 7px 7px 20px 0px rgb(0 0 0 / 10%), 4px 4px 5px 0px rgb(0 0 0 / 10%);\n    transition: all 0.3s ease;\n  }\n  .btn_2:hover {\n    color: #fff;\n  }\n  .btn_2:hover:after {\n    top: auto;\n    bottom: 0;\n    height: 100%;\n  }\n  .btn_2:active {\n    top: 2px;\n  } */\n\n  .pagination {\n    margin: 15px;\n    display: flex;\n    list-style: none;\n    outline: none;\n  }\n  .pagination > .active > a{\n    background-color: #47ccde ;\n    border-color: #47ccde ;\n    color: #fff;\n  }\n  .pagination > li > a{\n    position: relative;\n    float: left;\n    padding: 6px 12px;\n    margin-left: -1px;\n    line-height: 1.42857143;\n    text-decoration: none;\n    background-color: #fff;\n    border: 1px solid #ddd;\n    /* border: 1px solid #47ccde ;\n    padding: 5px 10px;\n    outline: none;\n    cursor: pointer; */\n  }\n  .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{\n    background-color: #007bff;\n    border: 1px solid #007bff;\n    z-index: 3;\n    color: #fff;\n    cursor: pointer;\n  }\n  .pagination > li > a, .pagination > li > span{\n    color: #007bff;\n    cursor: pointer;\n  }\n  .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{\n    /* border-radius: unset */\n    border-top-right-radius: 4px;\n    border-bottom-right-radius: 4px;\n  }\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
 
 /***/ }),
 
@@ -62124,6 +62206,315 @@ if (false) {} else {
 }
 
 
+/***/ }),
+
+/***/ "./resources/css/custom.css":
+/*!**********************************!*\
+  !*** ./resources/css/custom.css ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_custom_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./custom.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/custom.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_custom_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_custom_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
 /***/ })
 
 /******/ 	});
@@ -62304,6 +62695,11 @@ if (false) {} else {
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
