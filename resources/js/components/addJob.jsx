@@ -26,7 +26,6 @@ function AddJob() {
         summary: "",
         description: "",
         property: "",
-        submitted: false,
         listProperties: null,
     });
 
@@ -59,8 +58,8 @@ function AddJob() {
                 let listPropertiesFinal = <React.Fragment><option value="">No Property available</option></React.Fragment>;
                 if(propertyList.length > 0){
                     listPropertiesFinal = propertyList.map((job, itemId) => <React.Fragment>
-                        {itemId == 0 ? <option>Select a property</option> : ''}
-                        <option value={job.id}>{job.name}</option>
+                        {itemId == 0 ? <option key={itemId}>Select a property</option> : ''}
+                        <option key={itemId + 1} value={job.id}>{job.name}</option>
                     </React.Fragment>);
                 }
                 setFormData({
