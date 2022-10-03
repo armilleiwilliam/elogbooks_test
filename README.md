@@ -8,7 +8,7 @@ It runs on Laravel v9 and React integrated in the same application.
   however you can run “git clone https://github.com/armilleiwilliam/elogbooks_test.git”
 - run “composer install”
 - run “npm install"
-- run “npm run dev” (or build) to build the react app
+- run “npm run dev” to build the react app
 - create the env. file, create a new mysql database and set the database credentials on env.
 - if the database is successfully connected by running “php artisan migrate:refresh –-seed” should create a fresh database
   with dummy data stored with the seeder and factories I have developed. I’d suggest to not copy and paste the above command

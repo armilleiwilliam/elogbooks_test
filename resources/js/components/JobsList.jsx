@@ -31,6 +31,7 @@ function JobsList() {
         makeHttpRequestWithPage(1);
     }, [propertyData, pageNumber]);
 
+    // reload list of jobs according activated by a click on pagination item link
     const handlePageClick = (e) => {
         const selectedPage = e.selected;
         const offset = selectedPage * listJobs.perPage;
@@ -42,12 +43,14 @@ function JobsList() {
         makeHttpRequestWithPage(selectedPage + 1);
     };
 
+    // load list of jobs
     const makeHttpRequestWithPage = pageNumber => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
 
+        // retrieve jobs
         window.axios.get(`jobs-list/${pageNumber}`).then(resp => {
             if (resp.data.message == "success") {
                 propertyData = resp.data.data.jobs;
@@ -85,7 +88,6 @@ function JobsList() {
         });
     }
 
-
     return (
         <div>
             {errorMessage.message !== "" && (
@@ -99,7 +101,7 @@ function JobsList() {
                     <th>Status</th>
                     <th>Porperty name</th>
                     <th>Created by</th>
-                    <th>Created</th>
+                    <th>Created on</th>
                     <th>Controller</th>
                 </tr>
                 </thead>

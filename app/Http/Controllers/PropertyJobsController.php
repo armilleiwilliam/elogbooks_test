@@ -40,7 +40,7 @@ class PropertyJobsController extends Controller
      */
     public function propertyList(): JsonResponse
     {
-        $allProperties = Property::sanitizePropertyList();
+        $allProperties = Property::sanitizePropertiesList();
         return $this->success('success', ['properties' => $allProperties]);
     }
 

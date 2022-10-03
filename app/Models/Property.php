@@ -31,7 +31,7 @@ class Property extends Model
      * Return an array format of property list: id, name
      * @return array
      */
-    static function sanitizePropertyList(): array
+    static function sanitizePropertiesList(): array
     {
         $allProperties = Property::all()->sortBy("name");
         $listProperty = [];
