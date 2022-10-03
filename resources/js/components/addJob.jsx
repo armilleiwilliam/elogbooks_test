@@ -106,7 +106,7 @@ function AddJob() {
                 console.log(res);
                 setErrorMessage({
                     type: 'Success',
-                    message: "Job added successfully"
+                    message: "Job successfully logged, check on the list the job just added."
                 });
 
                 // delete all fields
