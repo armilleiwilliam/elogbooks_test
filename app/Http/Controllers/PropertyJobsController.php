@@ -27,9 +27,9 @@ class PropertyJobsController extends Controller
      * Return a list of jobs
      * @return JsonResponse
      */
-    public function jobsList(): JsonResponse
+    public function jobsList($page = 1)
     {
-        $allJobs = Job::sanitizeJobList();
+        $allJobs = Job::sanitizeJobList($page);
         return $this->success('success', ['jobs' => $allJobs]);
     }
 

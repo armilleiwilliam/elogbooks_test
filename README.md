@@ -3,7 +3,7 @@
 It runs on Laravel v9 and React integrated in the same application.
 
 ## Installation:
-- git repository is public, you should be able to clone it.
+- git repository is public, you should be able to clone it without permissions.
 - this is the link: https://github.com/armilleiwilliam/elogbooks_test
   however you can run “git clone https://github.com/armilleiwilliam/elogbooks_test.git”
 - run “composer install”
@@ -17,9 +17,9 @@ It runs on Laravel v9 and React integrated in the same application.
 - run “php artisan serve”
 - it might ask you to generate the App Key, just click on “Geneate App Key” on the right hand side of the browser window
   when accessing  http://127.0.0.1:8000 or run "php artisan key:generate". Then refresh the page.
-- you will then see a simple blank page with the links to the two views. Click on one of them. Otherwise access to them directly with:
+- you will then see a simple blank page with the links to the two views. Click on one of them. Otherwise, access to them directly with:
 - list of jobs: http://127.0.0.1:8000/property-jobs/
-- Log a job: http://127.0.0.1:8000/property-jobs/add-job
+- log a job: http://127.0.0.1:8000/property-jobs/add-job
 - for testing, run “php artisan test” after following the below instructions in "Testing with PhpUnit" section. 
 
 ## Graphic:
@@ -40,14 +40,20 @@ my Laravel skills more fully, also in this case the graphic is very minimal.
 The views are included in a component “x-app-layout”, usually I use something like extend(“layout.app.blade”) for each view,
 but I think components make life somehow easier and keep the code more tidy.
 
+## Controllers and comments
+Usually 4-5 methods per controller, but considering the methods in this application are quite short I left them all (about 7) in the 
+same controller. 
+I usually create methods which names are self-explanatory, so, I leave comments
+when it's necessary in order to not have too many lines of code. 
+
 ## Testing with PhpUnit:
 - for testing purposes I use “sqlite” and database “:memory:” (see phpunit.xml), so, there is no need to set any physical database
   as it uses the memory of your machine. But in order to have it working you need to have php-sqlite3 installed, 
-  if you don’t have it run “sudo apt-get install php-sqlite3”, you might need to enable it on your php.ini. Otherwise create 
-   a database just for testing and add it to phpunit.xml file replacing :memory: line, then comment the DB_CONNECTION “sqlite” line.
+  if you don’t have it run “sudo apt-get install php-sqlite3”, you might need to enable it on your php.ini. Otherwise, create 
+   a database just for testing and add it to phpunit.xml file replacing ':memory:' line, then comment the DB_CONNECTION “sqlite” line.
   In some cases the settings could be ignored returning a failing test when you have :memory: set, run "php artisan config:clear" and 
   "php artisan migrate:refresh --seed" to restore the database. Why you need to restore the db? Because if you run the test and it does ignore
-  the settings with ":memory:" it deletes entirely the physical database (use RefreshDatabase;) after you run the first test, so you have to 
+  the setting ":memory:" it deletes entirely the physical database (use RefreshDatabase;), so you have to 
   restore the dummy data. I hope it makes sense.  :-) For your information when I last ran the test it was successful. 
 
 

@@ -50,7 +50,7 @@ function AddJob() {
     };
 
     let propertyList = null;
-    const findPropertyList = () => {
+    const findPropertiesList = () => {
         window.axios.get("property-list").then(resp => {
             if (resp.data.message == "success") {
                 propertyList = resp.data.data.properties;
@@ -77,7 +77,7 @@ function AddJob() {
 
     // as soon as the page is loaded I retrieve the property list
     useEffect(() => {
-        findPropertyList();
+        findPropertiesList();
     }, [propertyList]);
 
 
@@ -106,7 +106,7 @@ function AddJob() {
                 console.log(res);
                 setErrorMessage({
                     type: 'Success',
-                    message: "Job added successfully"
+                    message: 'Successfully logged, click on "Jobs list" to see the job just added.',
                 });
 
                 // delete all fields
@@ -116,7 +116,7 @@ function AddJob() {
                 });
 
                 // reload properties list
-                findPropertyList();
+                findPropertiesList();
 
             }).catch((err) => {
                 let errorMessage = "";
@@ -136,7 +136,7 @@ function AddJob() {
             <div className="col-md-8 offset-md-2">
 
                 <h3 className="text-center border-bottom-1">Log a job</h3>
-                <p><a href="/property-jobs/" className="btn btn-primary" target="_blank">Properties List</a> </p>
+                <p><a href="/property-jobs/" className="btn btn-primary" target="_blank">Jobs list</a> </p>
                 <hr />
                 {errorMessage.message !== "" && (
                     <ResponseMessage type={errorMessage.type} message={errorMessage.message} />

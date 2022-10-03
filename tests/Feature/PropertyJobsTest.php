@@ -52,7 +52,7 @@ class PropertyJobsTest extends TestCase
         $response = $this->get("/property-jobs/");
         $response->assertStatus(200);
         $response->assertViewIs("front.list")
-        ->assertSee("Jobs list");
+            ->assertSee("Jobs list");
     }
 
     /**
@@ -62,19 +62,26 @@ class PropertyJobsTest extends TestCase
      */
     public function test_list_jobs(): void
     {
-        $response = $this->getJson('/property-jobs/jobs-list');
+        $response = $this->getJson('/property-jobs/jobs-list/1');
+
         $response->assertStatus(200)->assertJson([
             "message" => "success",
             "data" => [
                 "jobs" => [
-                    [
-                        "id" => $this->job->id,
-                        "summary" => $this->job->summary,
-                        "description" => $this->job->description,
-                        "status" => "open",
-                        "property" => $this->property->name,
-                        "created_by" => $this->user->name,
-                        "created_at" => $this->job->created_at->format("d/m/Y h:i:s"),
+                    "current_page" => 1,
+                    "last_page" => 1,
+                    "per_page" => 10,
+                    "total" => 1,
+                    "jobs" => [
+                        [
+                            "id" => $this->job->id,
+                            "summary" => $this->job->summary,
+                            "description" => $this->job->description,
+                            "status" => 'open',
+                            "property" => $this->property->name,
+                            "created_by" => $this->user->name,
+                            "created_at" => $this->job->created_at->format("d/m/Y h:i:s")
+                        ]
                     ]
                 ]
             ]
