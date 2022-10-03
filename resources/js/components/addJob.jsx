@@ -17,7 +17,7 @@ const ResponseMessage = ({ type, message }) => {
 
 
 /**
- * Add job to the list
+ * Log a job
  * @returns {JSX.Element}
  * @constructor
  */
@@ -100,7 +100,7 @@ function AddJob() {
         if (Object.keys(errors).length === 0) {
 
             // send data
-            axios.post(`store-job`,
+            axios.post(`store`,
                 contact
             ).then((res) => {
                 console.log(res);

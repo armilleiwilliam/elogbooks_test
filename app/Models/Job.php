@@ -47,7 +47,7 @@ class Job extends Model
     }
 
     /**
-     * I sanitize properties to be process by front end code
+     * I sanitize jobs list to be processed by React front end code
      * @return Array
      */
     static function sanitizeJobList($page)
@@ -80,7 +80,6 @@ class Job extends Model
                 "jobs" => $listJobs
             ];
         }
-
 
         return $pageInfo;
     }

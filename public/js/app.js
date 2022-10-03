@@ -5861,7 +5861,7 @@ function JobsList() {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     makeHttpRequestWithPage(1);
-  }, [propertyData, pageNumber]);
+  }, [propertyData, pageNumber]); // reload list of jobs according activated by a click on pagination item link
 
   var handlePageClick = function handlePageClick(e) {
     var selectedPage = e.selected;
@@ -5871,13 +5871,15 @@ function JobsList() {
       offset: offset
     });
     makeHttpRequestWithPage(selectedPage + 1);
-  };
+  }; // load list of jobs
+
 
   var makeHttpRequestWithPage = function makeHttpRequestWithPage(pageNumber) {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
-    });
+    }); // retrieve jobs
+
     window.axios.get("jobs-list/".concat(pageNumber)).then(function (resp) {
       if (resp.data.message == "success") {
         propertyData = resp.data.data.jobs;
@@ -5956,7 +5958,7 @@ function JobsList() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             children: "Created by"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
-            children: "Created"
+            children: "Created on"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
             children: "Controller"
           })]
@@ -6047,7 +6049,7 @@ var ResponseMessage = function ResponseMessage(_ref) {
   });
 };
 /**
- * Add job to the list
+ * Log a job
  * @returns {JSX.Element}
  * @constructor
  */
@@ -6151,7 +6153,7 @@ function AddJob() {
 
     if (Object.keys(errors).length === 0) {
       // send data
-      axios.post("store-job", contact).then(function (res) {
+      axios.post("store", contact).then(function (res) {
         console.log(res);
         setErrorMessage({
           type: 'Success',

@@ -111,7 +111,7 @@ class PropertyJobsTest extends TestCase
         $request = new Request();
         $request->headers->set('content-type', 'application/json');
         $request->setJson(new ParameterBag($job));
-        $response = $this->post('property-jobs/store-job', $job);
+        $response = $this->post('property-jobs/store', $job);
         $response->assertStatus(200);
         $this->assertDatabaseHas(
             "jobs", $job_expected
@@ -158,7 +158,7 @@ class PropertyJobsTest extends TestCase
         $request->setJson(new ParameterBag($job));
 
         // pass data to post request
-        $response = $this->post('property-jobs/store-job', $job);
+        $response = $this->post('property-jobs/store', $job);
         $response->assertSessionHasErrors([
             'summary' => "The summary field is required.",
             'description' => "The description field is required.",
