@@ -5915,7 +5915,7 @@ function JobsList() {
                     idJob: job.id
                   })]
                 })]
-              })
+              }, itemId)
             });
           });
         }
@@ -6060,7 +6060,6 @@ function AddJob() {
     summary: "",
     description: "",
     property: "",
-    submitted: false,
     listProperties: null
   }),
       _useState2 = _slicedToArray(_useState, 2),
@@ -6114,10 +6113,10 @@ function AddJob() {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
               children: [itemId == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
                 children: "Select a property"
-              }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+              }, itemId) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
                 value: job.id,
                 children: job.name
-              })]
+              }, itemId + 1)]
             });
           });
         }

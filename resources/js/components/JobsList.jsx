@@ -60,7 +60,7 @@ function JobsList() {
                 let postData = <React.Fragment><tr><td colspan='6'>No job added</td></tr></React.Fragment>;
                 if(jobs.length > 0){
                     postData = jobs.map((job, itemId) => <React.Fragment>
-                        <tr>
+                        <tr key={itemId}>
                             <td>{((pageNumber - 1) * 10) + itemId + 1}</td>
                             <td>{job.summary}</td>
                             <td>{job.status}</td>
